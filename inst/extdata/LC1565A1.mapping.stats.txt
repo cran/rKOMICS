@@ -1,0 +1,6 @@
+Number of reads: 608218
+Number of mapped reads: 523030
+Number of reads with mapping quality >= 20: 462416
+Number of CSB3-containing reads: 64488
+Number of mapped CSB3-containing reads: 60196
+Number of CSB3-containing reads with mapping quality >= 20: 45629
