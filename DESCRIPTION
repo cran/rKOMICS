@@ -1,7 +1,7 @@
 Package: rKOMICS
 Title: Minicircle Sequence Cluster (MSC) Analyses
-Version: 1.0
-Date: 2021-02-15
+Version: 1.1
+Date: 2021-07-21
 Authors@R: c(person("Frederik", "Van den Broeck", role = c("aut"),
                       email = "frederik.vandenbroeck@kuleuven.be"),
                person("Manon", "Geerts", role = c("aut", "cre"), email = "mgeerts@itg.be") )
@@ -16,9 +16,9 @@ Suggests: viridis
 biocViews:
 Depends: R (>= 2.10)
 NeedsCompilation: no
-Packaged: 2021-02-15 10:18:19 UTC; mgeerts
+Packaged: 2021-07-21 10:40:57 UTC; mgeerts
 Author: Frederik Van den Broeck [aut],
   Manon Geerts [aut, cre]
 Maintainer: Manon Geerts <mgeerts@itg.be>
 Repository: CRAN
-Date/Publication: 2021-02-17 09:10:02 UTC
+Date/Publication: 2021-07-21 11:40:02 UTC

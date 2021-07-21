@@ -73,6 +73,7 @@ msc.similarity <- function(clustmatrices, samples, groups) {
     }
     tmp <- do.call("rbind", temp)
     absfreq[[i]] <- table(apply(tmp, 2, function(x) paste(which(x != 0), collapse='')))
+    names(absfreq[[i]])[names(absfreq[[i]])==""] <- 0
   }
 
   captions <- vector()

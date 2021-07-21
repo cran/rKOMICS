@@ -1,4 +1,4 @@
-674f587ac2dc8999e814a263c4488727 *DESCRIPTION
+703d6f238f43f2e52894ec4fb0af5cb7 *DESCRIPTION
 b65c5368f2fd80b0852e68ccf6de0229 *NAMESPACE
 f8dd8be1d0826edbd9ff0a4c04debbe8 *R/exData.R
 b0cd5215883590ec4efd42945a3eb164 *R/matrices.R
@@ -10,15 +10,19 @@ b4351ea8350c30de1ad88ac1edb69b41 *R/msc.pca.R
 8384ae07d8a65b7cb475703a094ae335 *R/msc.quality.R
 6fbd1ff91357a166cec8cf2c7030f074 *R/msc.richness.R
 b7e5711756cd107d05189fe481652a3f *R/msc.seqs.R
-9e11f27255b4729e1a365046f63bb150 *R/msc.similarity.R
+a0a22544758729fa4d8ef3ef843ffe62 *R/msc.similarity.R
 bda2a37a1e85b69d912167434ef72826 *R/msc.subset.R
 598c4c1776334cefac0696332ee19dfc *R/msc.uc.R
 f514757794bb56793da3f9bc860eb784 *R/preprocess.R
 c2160274aa803bfae6506bf4c87e6237 *R/read.uc.R
 faa67cbb1dc6373d036be4c407064d73 *R/utils-pipe.R
-150f93d6129bed05779620440c5587ee *build/partial.rdb
+2b26ffedc1292d7eb1e067345dd7053c *build/partial.rdb
+4019e8b39137be996eca0a2d283acf02 *build/vignette.rds
 10f9be946a8ca86bd8819fdeb7775b70 *data/exData.rda
 22ec07ad3998ba334cdd284211bdb6e0 *data/matrices.rda
+c8cacee4326dd64d46d395350a120066 *inst/doc/example.R
+24bd5e49d2d7ec8aa29b03cb3a78589e *inst/doc/example.Rnw
+96a9fa80f31a0c0374bc3ea40d581dc4 *inst/doc/example.pdf
 56413453a77ea1549bb4bfc0bc96be09 *inst/extdata/CUM29A1.depth.stats.txt
 5834c04949c5d86f7ad0f96694789112 *inst/extdata/CUM29A1.mapping.stats.txt
 2f03dd201677c556c1c2121736297c6e *inst/extdata/CUM29A1.minicircles.fasta
@@ -225,10 +229,6 @@ bbb296879b8c9bc1e023f5b8f7b38f69 *inst/extdata/all.minicircles.circ.id100.uc
 efbb5984a126dddf3696dd9f07e81b52 *inst/extdata/all.minicircles.circ.id80.uc
 262a98cec568b734b060af1aa6bf261b *inst/extdata/all.minicircles.circ.id85.uc
 198b67f84f771985f14250e9a220dbcf *inst/extdata/all.minicircles.circ.id90.uc
-970d803dd756cea8cca6ea3912dcc949 *inst/extdata/all.minicircles.circ.id91.uc
-59895287eb5f800dde5bcb1df37dfb4a *inst/extdata/all.minicircles.circ.id92.uc
-10e8eb4f56497afcbe9f4bd50c269068 *inst/extdata/all.minicircles.circ.id93.uc
-da7a5d2b5f40398263e218bd4beff5bb *inst/extdata/all.minicircles.circ.id94.uc
 538ff4b916f60f55feb52670f309a9fe *inst/extdata/all.minicircles.circ.id95.uc
 d98003fa869d34afa2498c9d604b6380 *inst/extdata/all.minicircles.circ.id96.uc
 d39121c84cba06aeea39e28724b72651 *inst/extdata/all.minicircles.circ.id97.uc
@@ -252,3 +252,4 @@ a69418e73369c7376d6537157070b436 *man/pipe.Rd
 6da0e5004a21db5980263d63c9d6dcf2 *man/preprocess.Rd
 9f6f63e6768f9a1704da02c7fa0ee4c9 *man/rKOMICS.Rd
 bcfd4a9595f6a23bf4263f91cc48b2a6 *man/read.uc.Rd
+24bd5e49d2d7ec8aa29b03cb3a78589e *vignettes/example.Rnw
