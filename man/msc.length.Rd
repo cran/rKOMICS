@@ -7,18 +7,18 @@
 msc.length(file, samples, groups)
 }
 \arguments{
-\item{file}{the name of the fasta file containing all minicircle sequences, e.g. all.minicircles.circ.fasta.}
+\item{file}{the name of the FASTA file that contains all the minicircle sequences. The file should be in the format "all.minicircles.circ.fasta".}
 
 \item{samples}{a character vector containing the sample names.}
 
-\item{groups}{a vector, of equal length as samples, specifying to which group (e.g. subspecies) the samples belong to.}
+\item{groups}{a vector of the same length as the samples, specifying the groups (e.g., subspecies) to which the samples belong.}
 }
 \value{
-\item{length}{a numerical vector containing the length of minicircle sequences.}
-\item{plot}{a histogram visualizing the length frequency of minicircle sequences.}
+\item{length}{a numerical vector containing the lengths of the minicircle sequences. Each element corresponds to the length of a specific minicircle sequence.}
+\item{plot}{a histogram that visualizes the frequency distribution of minicircle sequence lengths. The histogram provides an overview of the length distribution of the minicircles.}
 }
 \description{
-The msc.length function allows you to check the length of minicircle sequences based on one fasta file.
+The msc.length function allows you to check the length of minicircle sequences based on a single FASTA file. This function helps determine the size distribution of minicircle sequences.
 }
 \examples{
 require(ggplot2)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/msc.similarity.R
 \name{msc.similarity}
 \alias{msc.similarity}
-\title{Minicircle Sequence Cluster similarity}
+\title{Minicircle Sequence Classes similarity}
 \usage{
 msc.similarity(clustmatrices, samples, groups)
 }
@@ -20,7 +20,7 @@ msc.similarity(clustmatrices, samples, groups)
 \item{relfreq.plot}{one barplot visualizing previous results.}
 }
 \description{
-The msc.similarity function allows you to check the absolute and relative frequency of shared and unique MSC between different groups across different percent identities.
+The function msc.similarity returns a measure of minicircle sequence composition within and between groups of samples. Specifically, it estimates the absolute and relative number of Minicircle Sequence Classes (MSCs) that are unique to each group or shared between two or more groups. The function returns tables and barplots that summarize the number of unique or shared MSCs for each minimum percent identity (MPI) separately or combined over all MPIs.
 }
 \examples{
 require(viridis)

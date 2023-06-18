@@ -8,7 +8,7 @@
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.95,0.95,0.95}
 
-%\VignetteIndexEntry{Sending Messages With Gmailr}
+%\VignetteIndexEntry{Application example}
 
 \title{%
   Vignette rKOMICS \\
@@ -17,6 +17,7 @@
 \author{Manon Geerts \& Frederik Van Den Broeck}
 
 \begin{document} 
+\SweaveOpts{concordance=TRUE}
 \lstset{language=R,
         breaklines=true,
         commentstyle=\color{mygreen},

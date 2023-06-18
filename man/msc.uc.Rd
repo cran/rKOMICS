@@ -7,18 +7,19 @@
 msc.uc(files)
 }
 \arguments{
-\item{files}{a character vector containing the uc file names (output of VSEARCH) e.g. all.minicircles.circ.id70.uc, all.minicircles.circ.id80.uc...}
+\item{files}{a character vector that includes the file names of UC files (produced by USEARCH or VSEARCH), such as all.minicircles.circ.id70.uc, all.minicircles.circ.id80.uc, and so on. Please ensure that your file names end with 'idxx.uc' for this function to work properly.}
 }
 \value{
-\item{MSCs}{a numerical vector containing the number of MSC per percent identity.}
-\item{perfect aligments}{a numerical vector containing the proportions of perfect alignments per percent identity.}
-\item{insertions}{a table showing the length and the number of insertions across different percent identities.}
-\item{deletions}{a table showing the length and the number of deletions across different percent identities.}
-\item{plots}{different plots showing previous results.}
+\item{MSCs}{a numerical vector containing the number of MSC per MPI.}
+\item{perfect aligments}{a numerical vector containing the proportions of perfect alignments per MPI.}
+\item{insertions}{a list showing the insertion lengths per MPI. Each element in the list corresponds to a specific MPI, and it provides the lengths of identified insertions.}
+\item{deletions}{a list showing the deletions lengths per MPI. Each element in the list corresponds to a specific MPI, and it provides the lengths of identified deletions.}
+\item{insertions summary}{a table showing the length and the number of insertions across different MPIs.}
+\item{deletions summary}{a table showing the length and the number of deletions across different MPIs.}
+\item{plots}{various plots showing previous results.}
 }
 \description{
-The msc.uc function allows you to check some clustering : insertions and deletions --> ask Fre.
-The total amount of minicircle sequence clusters (MSCs) found per percent identity will be calculated as well as the number of gaps.
+The function msc.uc reads the output of the clustering analyses (UC file) for each specified minimum percent identity (MPI) into a single list, which will be analyzed automatically to calculate and visualize, per MPI, the number of minicircle sequence classes (MSCs), the proportion of perfect alignments (i.e. alignments without any insertion/deletion, but allowing point mutations) and the number of alignment gaps. Gaps are defined by i) the number of insertions/deletions and ii) the length in base pairs of each individual insertion/deletion. It also issues a warning when large gaps (>500 bp) are found, which points the user to anomalous alignments due to e.g. artificial dimers introduced by the assembly process. This allows the user to make an informed decision about the MPI (or MPI's) that best captures minicircle sequence richness within a (group of) sample(s) while minimizing the number and length of alignment gaps.
 }
 \examples{
 data(exData)

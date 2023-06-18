@@ -1,14 +1,14 @@
 #' Minicircle Sequence Cluster richness
 #'
-#' The msc.richness function counts how many Minicircle Sequence Clusters (MSC) are present per sample across different percent identities.
+#' The msc.richness function calculates the measure of minicircle richness per sample by estimating the number of Minicircle Sequence Classes (MSCs) in each sample. It takes into account different minimum percent identities (MPIs) and returns a table of richness estimates per sample and per MPI. Additionally, it generates a boxplot that illustrates the minicircle richness across samples based on the estimated MSCs over a range of MPIs.
 #'
 #' @usage msc.richness(clustmatrices, samples, groups)
-#' @param clustmatrices a list of cluster matrices.
-#' @param samples a vector containing the names of the samples. This can include all samples or it can be a subset. 
-#' @param groups a vector, of equal length as samples, specifying to which group (e.g. species) the samples belong to.
+#' @param clustmatrices a list of cluster matrices obtained from the msc.matrix function. Each cluster matrix represents the presence or absence of MSCs in each sample.
+#' @param samples a vector containing the names of the samples. 
+#' @param groups a vector specifying the group (e.g., species) to which each sample belongs. 
 #' @return
-#'   \item{table}{a table containing the number of MSC per sample across different percent identities.}
-#'   \item{plot}{a boxplot visualizing previous results. }
+#'   \item{table}{a table summarizing the number of MSCs per sample at different percent identities. The table provides an overview of the estimated minicircle richness in each sample across the MPIs.}
+#'   \item{plot}{a boxplot visualizing the minicircle richness across samples. The boxplot represents the distribution of richness estimates in each sample over the range of MPIs considered.}
 #' @examples
 #' require(ggplot2)
 #' data(matrices)
@@ -44,12 +44,12 @@
 msc.richness <- function(clustmatrices, samples, groups) {
   
   
-  ############# tests
+  #############   0   Tests   #############
   
   
-  if (!is.factor(groups)) stop("ERROR: groups should be a factor")
-  if (!is.list(clustmatrices)) stop("ERROR: clustmatrices should be a list of matrices")
-  if (length(samples) != length(groups)) stop("ERROR: samples and groups are not of equal length")
+  if (!is.factor(groups)) stop("groups should be a factor")
+  if (!is.list(clustmatrices)) stop("clustmatrices should be a list of matrices")
+  if (length(samples) != length(groups)) stop("samples and groups are not of equal length")
   if (length(samples) != ncol(clustmatrices[[1]])) {
         answer <- utils::menu(c("Yes", "No"), 
                         title="WARNING: You entered a subset of your samples.\nDo you wish to procede?")
@@ -57,28 +57,37 @@ msc.richness <- function(clustmatrices, samples, groups) {
   }
   
   
-  ############# MSC per sample across different % id
+  #############   0     Define global functions or variables   #############
+  
+  
+  sample <- group <- value <- NULL
+  
+  
+  #############   1   MSC per sample across different % id    #############
   
   
   id <- names(clustmatrices)
   
   N_between <- data.frame(matrix(nrow = length(samples), ncol = length(id)+2))
   N_between[,1:2] <- c(samples,as.character(groups))
-  colnames(N_between) <- c("samples", "group",id)
+  colnames(N_between) <- c("sample", "group",id)
   
   for (i in 1:length(id)) {
-    N_between[,i+2] <- apply(clustmatrices[[i]][,samples], 2, function(x) sum(x>0))
+    N_between[, i + 2] <- colSums(clustmatrices[[i]][, samples] > 0)
   }
-  melted <- reshape2::melt(N_between, id=c("samples", "group"))
+  melted <- reshape2::melt(N_between, id=c("sample", "group"))
   
-  plt <- ggplot(melted, aes(x=samples, y=melted$value, col=melted$group, fill=melted$group)) + geom_boxplot(alpha=0.5, show.legend = F) +
-    xlab('') + theme_minimal() +
-    facet_grid(. ~ group, scales='free', space='free') + ylab('Number of MSC across different % id') +
+  plt <- ggplot(melted, aes(x=sample, y=value, col=group, fill=group)) + 
+    geom_boxplot(alpha=0.5, show.legend = F) +
+    xlab('') + 
+    theme_minimal() +
+    facet_grid(. ~ group, scales='free', space='free') + 
+    ylab('Number of MSC across different % id') +
     theme(axis.text.x = element_text(angle=90, hjust=1),
           axis.title = element_text(face = "bold"))
 
   
-  ############# return
+  #############   2   Return MSC richness    #############
   
   
   return(list("table" = N_between, "plot" = plt))

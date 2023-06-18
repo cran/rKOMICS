@@ -7,21 +7,21 @@
 msc.seqs(fastafile, ucfile, clustnumbers, writeDNA = TRUE)
 }
 \arguments{
-\item{fastafile}{the name of the fasta file containing all minicircle sequences.}
+\item{fastafile}{the name of the FASTA file containing all minicircle sequences.}
 
-\item{ucfile}{the name of the uc file.}
+\item{ucfile}{the name of the UC file.}
 
-\item{clustnumbers}{a character vector containing the cluster numbers (in the format "C0", "C1", ...) of which cluster and hit sequences need to be extracted.}
+\item{clustnumbers}{a character vector containing the cluster numbers (in the format "C0", "C1", etc.) of the MSCs for which you want to retrieve the sequences. These cluster numbers specify the MSCs and their associated hit sequences that need to be extracted from the FASTA file and UC file.}
 
-\item{writeDNA}{a logical parameter which is by default set to TRUE. This will write fasta files to the current directory.}
+\item{writeDNA}{a logical parameter that is set to TRUE by default. When set to TRUE, this parameter will write the extracted sequences into separate FASTA files in the current directory.}
 }
 \value{
-a table which summarizes the number of hit sequences found in the MSC, the MSC name and where the MSC is present (strain names).
+a table that summarizes the number of hit sequences found in each MSC, the MSC names, and the samples where the MSCs are present. This table provides an overview of the extracted sequences and their distribution across samples.
 
-one fasta file per MSC with all its hits sequences.
+one FASTA file per MSC with all its hit sequences. These FASTA files can be further used for downstream analyses or sequence comparisons.
 }
 \description{
-The msc.seqs retrieves the DNA sequence of a minicircle sequence cluster (MSC) together with all its hit sequences.
+The msc.seqs function retrieves the DNA sequence of a Minicircle Sequence Classes (MSC) together with all its hit sequences from a FASTA file and a corresponding UC file. This function is useful for extracting and analyzing specific MSCs and their associated hit sequences.
 }
 \examples{
 data(exData)

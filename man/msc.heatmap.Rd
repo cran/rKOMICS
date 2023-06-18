@@ -7,17 +7,17 @@
 msc.heatmap(clustmatrix, samples, groups)
 }
 \arguments{
-\item{clustmatrix}{one cluster matrix generated with the msc.matrix function.}
+\item{clustmatrix}{a cluster matrix generated with the msc.matrix function. This matrix represents the presence or absence of MCSs in each sample.}
 
-\item{samples}{a vector containing the sample names. This can include all samples or it can be a subset.}
+\item{samples}{a vector containing the sample names.}
 
-\item{groups}{a vector specifying to which groups (e.g. species) the samples belong to.}
+\item{groups}{a vector specifying the groups (e.g., species) to which the samples belong.}
 }
 \value{
-a heatmap
+a heatmap that visualizes the clustering patterns of MCSs between sample groups. The heatmap provides an overview of the presence or absence of MCSs and helps identify shared or distinct MCS patterns among the groups.
 }
 \description{
-The msc.heatmap function generates a heatmap of the input cluster matrix that summarizes the presence or absence  of Minicircle Cluster Sequences (MCSs) between groups of samples.
+The msc.heatmap function generates a heatmap that summarizes the presence or absence of Minicircle Sequence Classes (MCSs) between groups of samples. It takes an input cluster matrix, generated using the msc.matrix function, and visualizes the clustering patterns of MCSs.
 }
 \examples{
 data(exData)

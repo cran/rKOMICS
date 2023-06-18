@@ -1,14 +1,14 @@
 #' Length of minicircles
 #'
-#' The msc.length function allows you to check the length of minicircle sequences based on one fasta file. 
+#' The msc.length function allows you to check the length of minicircle sequences based on a single FASTA file. This function helps determine the size distribution of minicircle sequences.
 #' 
 #' @usage msc.length(file, samples, groups)
-#' @param file the name of the fasta file containing all minicircle sequences, e.g. all.minicircles.circ.fasta.
+#' @param file the name of the FASTA file that contains all the minicircle sequences. The file should be in the format "all.minicircles.circ.fasta".
 #' @param samples a character vector containing the sample names.
-#' @param groups a vector, of equal length as samples, specifying to which group (e.g. subspecies) the samples belong to.
+#' @param groups a vector of the same length as the samples, specifying the groups (e.g., subspecies) to which the samples belong.
 #' @return
-#'   \item{length}{a numerical vector containing the length of minicircle sequences.}
-#'   \item{plot}{a histogram visualizing the length frequency of minicircle sequences.}
+#'   \item{length}{a numerical vector containing the lengths of the minicircle sequences. Each element corresponds to the length of a specific minicircle sequence.}
+#'   \item{plot}{a histogram that visualizes the frequency distribution of minicircle sequence lengths. The histogram provides an overview of the length distribution of the minicircles.}
 #' @examples
 #' require(ggplot2)
 #' require(ggpubr)
@@ -37,7 +37,7 @@
 msc.length <- function(file, samples, groups) {
 
 
-  ############# tests
+  #############   0   Tests   #############
 
 
   if (!file.exists(file)) stop("ERROR: File doesn't exist")
@@ -45,7 +45,13 @@ msc.length <- function(file, samples, groups) {
   if (length(file)>1) stop("ERROR: Your input parameter is too long")
 
 
-  ############# read in data
+  #############   0   Define global functions or variables   #############
+  
+  
+  freq.length <- NULL
+  
+  
+  #############   1   Read in data    #############
 
 
   freq <- list()
@@ -53,13 +59,16 @@ msc.length <- function(file, samples, groups) {
   samples <- sort(unique(gsub('_con.*','',attr(sequences, 'names'))))
   freq$length <- as.numeric(gsub('.*_len|_cir.*','',attr(sequences, 'names')))
   df <- data.frame(freq$length)
-  freq$plot <- ggplot(df, aes(x=df$freq.length)) +
+  
+  freq$plot <- ggplot(df, aes(x=freq.length)) +
     geom_histogram(bins=50, alpha=0.8, show.legend = F, col="black", fill='gray') +
-    xlab("Minicircle sequence length") + theme_minimal() +
-    theme(axis.title = element_text(face = "bold")) + ylab("Frequency of minicircle length")
+    xlab("Minicircle sequence length") + 
+    theme_minimal() +
+    theme(axis.title = element_text(face = "bold")) + 
+    ylab("Frequency of minicircle length")
 
 
-  ############# return
+  #############   2   Return minicircle lengths    #############
 
 
   return(freq)

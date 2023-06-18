@@ -7,25 +7,25 @@
 msc.pca(clustmatrix, samples, groups, n = 20, labels = TRUE, title = NULL)
 }
 \arguments{
-\item{clustmatrix}{a cluster matrix}
+\item{clustmatrix}{a cluster matrix obtained from the msc.matrix function. The cluster matrix represents the presence or absence of MSCs in each sample, where rows represent MSCs and columns represent samples.}
 
-\item{samples}{a vector containing the names of the samples. This can include all samples or it can be a subset.}
+\item{samples}{a vector containing the names of the samples. This can include all samples or a subset of samples that you want to analyze.}
 
-\item{groups}{a vector specifying to which group (e.g. species) the samples belong to.}
+\item{groups}{a vector specifying the groups (e.g., species) to which the samples belong.}
 
-\item{n}{number of clusters to select with highest contribution to PCA.}
+\item{n}{the number of clusters to select with the highest contribution to PCA. By default, it is set to 20.}
 
-\item{labels}{a logical parameter indicating whether to use labels on the PCA plot or not. Default is set to true.}
+\item{labels}{a  logical parameter indicating whether to use labels on the PCA plot or not. If set to TRUE (default), the plot will display sample labels.}
 
-\item{title}{the title of the graph}
+\item{title}{the  title of the graph. You can provide a title for the PCA plot if desired.}
 }
 \value{
-\item{plot}{a PCA plot.}
-\item{eigenvalues}{a barplot showing percentage of explained variances.}
-\item{clustnames}{list of cluster names with highest contribution to PCA.}
+\item{plot}{a PCA plot that visualizes the clustering of samples based on the presence/absence of MSCs. The plot helps identify clusters and patterns of similarity or dissimilarity between samples.}
+\item{eigenvalues}{a barplot showing the percentage of explained variances by each principal component. This plot provides insights into the contribution of each principal component to the overall variation in the data.}
+\item{clustnames}{a  A list of cluster names with the highest contribution to PCA. This list helps identify the MSC clusters that have the most influence on the PCA results.}
 }
 \description{
-The msc.pca allows you to perform Principle Component Analysis to summarize MSCs variation in all samples or in a subset of samples.
+The msc.pca function allows you to perform Principle Component Analysis (PCA) to summarize the variation of Minicircle Sequence Classes (MSCs) in all samples or in a subset of samples.
 }
 \examples{
 data(matrices)
@@ -35,11 +35,11 @@ data(exData)
 res.pca <- lapply(matrices, function(x) msc.pca(x, samples = exData$samples, 
                   groups = exData$species, n=30, labels=FALSE, title=NULL))
 
-res.pca$id93$eigenvalues
-res.pca$id93$plot
+res.pca$id95$eigenvalues
+res.pca$id95$plot
 
 ### use clusters with highest contribution to visualize in a heatmap
-msc.heatmap(matrices[["id93"]][res.pca$id93$clustnames,], samples = exData$samples,
+msc.heatmap(matrices[["id95"]][res.pca$id95$clustnames,], samples = exData$samples,
             groups = exData$species)
 
 ### run function with a subset of samples

@@ -7,28 +7,26 @@
 preprocess(files, groups, circ = TRUE, min = 500, max = 1500, writeDNA = TRUE)
 }
 \arguments{
-\item{files}{a character vector containing the fasta file names in the format sampleA.minicircles.fasta, sampleB.minicircles.fasta,... (output of KOMICS).}
+\item{files}{a character vector containing the names of the fasta files. Each file corresponds to the minicircle sequences of a specific sample. The file names should be in the format sampleA.minicircles.fasta, sampleB.minicircles.fasta, and so on (output of KOMICS).}
 
-\item{groups}{a factor specifying to which group (e.g. species) the samples belong to. It should have the same length as the list of files.}
+\item{groups}{a factor specifying the group (e.g., species) to which each sample belongs. It should have the same length as the list of files, indicating the group assignment for each sample.}
 
-\item{circ}{a logical parameter. By default non-circularized minicicle sequences will be excluded. If interested in non-circularized sequences as well, set the parameter to FALSE.}
+\item{circ}{a logical parameter that determines whether non-circularized minicircle sequences should be included or excluded from the filtering process. By default, non-circularized sequences are excluded (circ = TRUE). If you are interested in including non-circularized sequences, you can set the parameter to FALSE.}
 
-\item{min}{a minimum value for the minicircle sequences length. Default value is set to 500.}
+\item{min}{the minimum length threshold for filtering minicircle sequences. Sequences with a length below this threshold will be excluded. The default value is set to 500.}
 
-\item{max}{a maximum value for the minicircle sequences length. Default value is set to 1500.}
+\item{max}{the maximum length threshold for filtering minicircle sequences. Sequences with a length above this threshold will be excluded. The default value is set to 1500.}
 
-\item{writeDNA}{a logical parameter. By default filtered minicircle sequences will by written in fasta format to the current working directory. Set to FALSE if only interested in other output values like plots and summary.}
+\item{writeDNA}{a logical parameter that determines whether the filtered minicircle sequences should be written in FASTA format to the current working directory. By default, the filtered sequences are written (writeDNA = TRUE). If you are only interested in other output values like plots and summary, you can set this parameter to FALSE.}
 }
 \value{
-\item{samples}{the sample names (based on the input files).}
-\item{N_MC}{a table containing the sample name, which group it belongs to and the number of minicirce sequences (N_MC) before and after filtering.}
+\item{samples}{the sample names based on the input files.}
+\item{N_MC}{a table containing the sample names, the corresponding group assignment, and the number of minicircle sequences (N_MC) before and after filtering.}
 \item{plot}{a barplot visualizing the number of minicircle sequences per sample before and after filtering.}
 \item{summary}{the total number of minicircle sequences before and after filtering.}
 }
 \description{
-Assembling minicircle sequences with KOMICS generates individual fasta files (one per sample).
-The preprocess function allows you to filter the minicircle sequences based on sequence length (as the size of minicircular kDNA is species-specific and variable) and circularization success.
-The function will write filtered individual fasta files in the current working directory.
+The preprocess function is used to filter minicircle sequences based on sequence length and circularization success. When minicircle sequences are assembled with KOMICS, individual fasta files are generated for each sample. This function allows you to filter these sequences based on their length and whether they are circularized or not. The filtered sequences are then written into individual FASTA files in the current working directory.
 }
 \examples{
 require(ggplot2)

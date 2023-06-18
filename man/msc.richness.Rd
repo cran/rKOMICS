@@ -7,18 +7,18 @@
 msc.richness(clustmatrices, samples, groups)
 }
 \arguments{
-\item{clustmatrices}{a list of cluster matrices.}
+\item{clustmatrices}{a list of cluster matrices obtained from the msc.matrix function. Each cluster matrix represents the presence or absence of MSCs in each sample.}
 
-\item{samples}{a vector containing the names of the samples. This can include all samples or it can be a subset.}
+\item{samples}{a vector containing the names of the samples.}
 
-\item{groups}{a vector, of equal length as samples, specifying to which group (e.g. species) the samples belong to.}
+\item{groups}{a vector specifying the group (e.g., species) to which each sample belongs.}
 }
 \value{
-\item{table}{a table containing the number of MSC per sample across different percent identities.}
-\item{plot}{a boxplot visualizing previous results. }
+\item{table}{a table summarizing the number of MSCs per sample at different percent identities. The table provides an overview of the estimated minicircle richness in each sample across the MPIs.}
+\item{plot}{a boxplot visualizing the minicircle richness across samples. The boxplot represents the distribution of richness estimates in each sample over the range of MPIs considered.}
 }
 \description{
-The msc.richness function counts how many Minicircle Sequence Clusters (MSC) are present per sample across different percent identities.
+The msc.richness function calculates the measure of minicircle richness per sample by estimating the number of Minicircle Sequence Classes (MSCs) in each sample. It takes into account different minimum percent identities (MPIs) and returns a table of richness estimates per sample and per MPI. Additionally, it generates a boxplot that illustrates the minicircle richness across samples based on the estimated MSCs over a range of MPIs.
 }
 \examples{
 require(ggplot2)
