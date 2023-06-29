@@ -72,8 +72,6 @@ msc.depth <- function(depthstats, groups, HCN = NULL) {
     depth_file[,"sample"] <- gsub("_contig.*", "", rownames(depth_file)[1])
     depth_file[,"group"] <- groups[n]
     
-    depths[[n]] <- depth_file
-    
     hists_MEDIAN.DEPTH[[n]] <- ggplot(depth_file, aes(x=MEDIAN.DEPTH)) + 
       geom_histogram(bins = 50, color="black", fill="gray") + 
       ylab('frequency') + 
@@ -92,6 +90,8 @@ msc.depth <- function(depthstats, groups, HCN = NULL) {
       depth_file$CN <- depth_file$MEDIAN.DEPTH/HCN[n]
       depth_file$MIN.CN <- depth_file$MIN.DEPTH/HCN[n]
       depth_file$MAX.CN <- depth_file$MAX.DEPTH/HCN[n]
+      
+      depths[[n]] <- depth_file
       
       box_CN[[n]] <- ggplot(depth_file, aes(x=CN)) +
         geom_boxplot() +

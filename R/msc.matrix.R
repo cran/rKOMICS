@@ -41,7 +41,7 @@ msc.matrix <- function(files, samples, groups) {
   #############   1   Create cluster matrix   #############
 
 
-  ids <- as.numeric(gsub("\\D", "", tools::file_path_sans_ext(files)))
+  ids <- as.numeric(sub(".*id(\\d+)\\.uc", "\\1", files))
   
   groups <- groups[order(samples)]
   samples <- sort(samples)

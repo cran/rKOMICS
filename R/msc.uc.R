@@ -56,7 +56,7 @@ msc.uc <- function(files) {
   #############   1   Analysis   #############
   
   
-  ids <- as.numeric(gsub("\\D", "", tools::file_path_sans_ext(files)))
+  ids <- as.numeric(sub(".*id(\\d+)\\.uc", "\\1", files))
   
   MSCs <- PROP.PA <- vector("numeric", length(ids))
   gplots <- pltINS <- pltDEL <- insertionsA <- deletionsA <- list()

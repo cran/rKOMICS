@@ -1,7 +1,7 @@
 Package: rKOMICS
 Title: Minicircle Sequence Classes (MSC) Analyses
-Version: 1.2
-Date: 2023-06-16
+Version: 1.3
+Date: 2023-06-28
 Authors@R: c(person("Frederik", "Van den Broeck", role = c("aut"),
                       email = "frederik.vandenbroeck@kuleuven.be"),
                person("Manon", "Geerts", role = c("aut", "cre"), email = "geertsmanon@gmail.com") )
@@ -16,9 +16,9 @@ Imports: ggplot2, ape, circlize, ComplexHeatmap, reshape2, utils,
 Suggests: viridis
 Depends: R (>= 2.10)
 NeedsCompilation: no
-Packaged: 2023-06-16 16:56:45 UTC; mgeerts
+Packaged: 2023-06-28 11:25:36 UTC; mgeerts
 Author: Frederik Van den Broeck [aut],
   Manon Geerts [aut, cre]
 Maintainer: Manon Geerts <geertsmanon@gmail.com>
 Repository: CRAN
-Date/Publication: 2023-06-18 14:00:02 UTC
+Date/Publication: 2023-06-29 22:40:03 UTC
